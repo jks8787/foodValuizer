@@ -1,8 +1,0 @@
-'[
-  { category: "produce", cost: 1.00, usage: "eaten" },
-  { category: "produce", cost: 1.50, usage: "trashed" },
-  { category: "dairy", cost: 3.00, usage: "composted" },
-  { category: "dairy", cost: 4.00, usage: "recycled" },
-  { category: "drinks", cost: 2.00, usage: "recycled" },
-  { category: "meat", cost: 5.00, usage: "composted" }
-]''

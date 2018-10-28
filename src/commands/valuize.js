@@ -61,6 +61,7 @@ class ValueizeCommand extends Command {
           break;
       }
     });
+
     this.log(`final total value from given input: ${finalOutput.value}`);
     this.log(`overall cost from given input: ${finalOutput.cost}`);
   }
@@ -68,6 +69,10 @@ class ValueizeCommand extends Command {
 
 ValueizeCommand.description = `Valuizes input
 ...
+returns the input as well as the following:
+
+final total value from given input: VALUE_OUT_PUT_HERE
+overall cost from given input: OVERALL_COST_HERE
 `
 
 ValueizeCommand.flags = {
