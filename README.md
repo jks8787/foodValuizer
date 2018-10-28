@@ -4,9 +4,6 @@ foodValuizer
 Intended to keep track of values for the various uses of food
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/foodValuizer.svg)](https://npmjs.org/package/foodValuizer)
-[![Downloads/week](https://img.shields.io/npm/dw/foodValuizer.svg)](https://npmjs.org/package/foodValuizer)
-[![License](https://img.shields.io/npm/l/foodValuizer.svg)](https://github.com/jks8787/foodValuizer/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -15,27 +12,17 @@ Intended to keep track of values for the various uses of food
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g foodValuizer
-$ foodValuizer COMMAND
-running command...
+$ git clone git@github.com:jks8787/foodValuizer.git
+$ cd foodValuizer
+$ npm install
+$ npm link
+$ foodValuizer hello
+hello world from ./src/commands/hello.js
 $ foodValuizer (-v|--version|version)
 foodValuizer/0.0.1 darwin-x64 node-v8.12.0
-$ foodValuizer --help [COMMAND]
-USAGE
-  $ foodValuizer COMMAND
-...
-```
-<!-- usagestop -->
-# Commands
-<!-- commands -->
-* [`foodValuizer hello`](#food-valuizer-hello)
-* [`foodValuizer help [COMMAND]`](#food-valuizer-help-command)
+$ foodValuizer --help hello
+Outputs hello message
 
-## `foodValuizer hello`
-
-Describe the command here
-
-```
 USAGE
   $ foodValuizer hello
 
@@ -44,16 +31,48 @@ OPTIONS
 
 DESCRIPTION
   ...
-  Extra documentation goes here
 ```
+<!-- usagestop -->
+# Commands
+<!-- commands -->
+* [`foodValuizer hello`](#food-valuizer-hello)
+* [`foodValuizer goodbye`](#food-valuizer-goodbye)
+* [`foodValuizer help [COMMAND]`](#food-valuizer-help-command)
 
-_See code: [src/commands/hello.js](https://github.com/jks8787/foodValuizer/blob/v0.0.1/src/commands/hello.js)_
+## `foodValuizer hello`
+```
+Outputs hello message
+
+USAGE
+  $ foodValuizer hello
+
+OPTIONS
+  -n, --name=name  name to print
+
+DESCRIPTION
+  ...
+```
+_See code: [src/commands/hello.js](https://github.com/jks8787/foodValuizer/blob/v0.0.1/src/commands/goodbye.js)_
+
+## `foodValuizer goodbye`
+```
+Outputs goodbye message
+
+USAGE
+  $ foodValuizer goodbye
+
+OPTIONS
+  -n, --name=name  name to print
+
+DESCRIPTION
+  ...
+```
+_See code: [src/commands/goodbye.js](https://github.com/jks8787/foodValuizer/blob/v0.0.1/src/commands/goodbye.js)_
 
 ## `foodValuizer help [COMMAND]`
-
+```
 display help for foodValuizer
 
-```
 USAGE
   $ foodValuizer help [COMMAND]
 
