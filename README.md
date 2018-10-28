@@ -108,8 +108,8 @@ valuizing input: [
   { category: "drinks", cost: 2.00, usage: "recycled" },
   { category: "meat", cost: 5.00, usage: "composted" }
 ]
-final total value from given input: 1.4000000000000001
-overall cost from given input: 16.5
+final total value from given input: 1.40
+overall cost from given input: 16.50
 ```
 
 ## `foodValuizer help [COMMAND]`

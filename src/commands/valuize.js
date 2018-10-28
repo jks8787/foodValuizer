@@ -33,42 +33,39 @@ class ValueizeCommand extends Command {
 
     const compostable = ['produce', 'dairy']
     const recyclable = ['drinks']
+    const compostableFactor = 0.1
+    const recyclableFactor = 0.05
     let finalOutput = {value: 0, cost: 0}
     // Disabling eslint rule here as using the switch rather than an else if block
     // Should yelid a faster result
     // eslint-disable-next-line array-callback-return
     data.map(d => {
+      const isCompostable = compostable.includes(d.category)
+      const isRecyclable = recyclable.includes(d.category)
+
+      finalOutput.cost += d.cost
+
       switch (d.usage) {
       case 'eaten':
         finalOutput.value += d.cost
-        finalOutput.cost += d.cost
         return finalOutput
       case 'composted':
-        if (compostable.includes(d.category)) {
-          finalOutput.value += (0.1 * d.cost)
-          finalOutput.cost += d.cost
-        } else {
-          finalOutput.cost += d.cost
-          return finalOutput
+        if (isCompostable) {
+          finalOutput.value += (compostableFactor * d.cost)
         }
-        break
+        return finalOutput
       case 'recycled':
-        if (recyclable.includes(d.category)) {
-          finalOutput.value += (0.05 * d.cost)
-          finalOutput.cost += d.cost
-        } else {
-          finalOutput.cost += d.cost
-          return finalOutput
+        if (isRecyclable) {
+          finalOutput.value += (recyclableFactor * d.cost)
         }
-        break
+        return finalOutput
       case 'trashed':
-        finalOutput.cost += d.cost
         return finalOutput
       }
     })
     // Log value and overall cost
-    this.log(`final total value from given input: ${finalOutput.value}`)
-    this.log(`overall cost from given input: ${finalOutput.cost}`)
+    this.log(`final total value from given input: ${finalOutput.value.toFixed(2)}`)
+    this.log(`overall cost from given input: ${finalOutput.cost.toFixed(2)}`)
   }
 }
 
