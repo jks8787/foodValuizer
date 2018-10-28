@@ -29,26 +29,40 @@ class ValueizeCommand extends Command {
     const compostable = ['produce', 'dairy'];
     const recyclable = ['drinks'];
 
-    let finalValue = 0;
+    let finalOutput = {value: 0, cost: 0};
     data.map(d => {
       switch (d.usage) {
       case 'eaten':
-          return finalValue += d.cost;
+          finalOutput.value += d.cost;
+          finalOutput.cost += d.cost;
+          return finalOutput;
           break;
       case 'composted':
-          compostable.includes(d.category) ? finalValue += (0.1 * d.cost) : finalValue;
+          if(compostable.includes(d.category)) {
+            finalOutput.value += (0.1 * d.cost);
+            finalOutput.cost += d.cost;
+          } else {
+            finalOutput.cost += d.cost;
+            return finalOutput;
+          };
           break;
       case 'recycled':
-          recyclable.includes(d.category) ? finalValue += (0.05 * d.cost) : finalValue;
+          if(recyclable.includes(d.category)) {
+            finalOutput.value += (0.05 * d.cost);
+            finalOutput.cost += d.cost;
+          } else {
+            finalOutput.cost += d.cost;
+            return finalOutput;
+          };
           break;
       case 'trashed':
-          return finalValue;
+          finalOutput.cost += d.cost;
+          return finalOutput;
           break;
       }
     });
-
-
-    this.log(`final total value from given input: ${finalValue}`);
+    this.log(`final total value from given input: ${finalOutput.value}`);
+    this.log(`overall cost from given input: ${finalOutput.cost}`);
   }
 }
 
