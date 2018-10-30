@@ -1,9 +1,16 @@
 foodValuizer
 ============
 
-Intended to keep track of values for the various uses of food
+Food waste is a big problem and to keep track of the value lost this CLI tool is here to help.
+
+## Logic
+* Eaten food: 100% of cost is translated into value
+* Composted food: 10% of cost is translated into value
+* Recycled food: 5% of cost is translated into value
+* Trashed food: 0% of cost is translated into value
 
 <!-- toc -->
+## Index
 * [Usage](#local-usage)
 * [Commands](#commands)
 <!-- tocstop -->
